@@ -45,9 +45,9 @@ function wishMe() {
           speak("Good evening sirr! How i can help You?")
         }
     }
-// window.addEventListener("load", () => {
-//     wishMe();
-//     });
+window.addEventListener("load", () => {
+    wishMe();
+    });
 
 let speechRecoginization = window.SpeechRecognition || window.webkitSpeechRecognition;
 let recognition = new speechRecoginization()
@@ -76,10 +76,7 @@ btn.addEventListener("click", () => {
     function takeCommand(message) {
         btn.style.display = "flex";
         voice.style.display = "none";
-        if (message.includes("hi") || message.includes("hello") || message.includes("hey") || message.includes("hola") || message.includes("namaste") || message.includes("hay")) {
-            speak("Hello Maanam sir, How i can Help you?");
-        }
-        else if (message.includes("who are you") || message.includes("what is your name") || message.includes("what's your name") || message.includes("tell me about yourself") || message.includes("hu r u")) {
+        if (message.includes("who are you") || message.includes("what is your name") || message.includes("what's your name") || message.includes("tell me about yourself") || message.includes("hu r u")) {
             speak("I am techiei, Your Virtual Assistant. I am here to assist you in your daily tasks, created by Hafiz Maanam Sujra");
         }
         else if (message.includes("how are you") || message.includes("how are you doing") || message.includes("how are you feeling") || message.includes("how are you doing today") || message.includes("how are you feeling today")) {
@@ -160,13 +157,19 @@ else if (message.includes("open vs code") ||
         message.includes("hey techie open vs code") || 
         message.includes("hi techie open vs code")) {
    openDesktopApp("vscode://", "Visual Studio Code");
-}else if(message.includes("time")){
+}else if (message.includes("tecrix") ){
+    speak("Tecrix is a cutting-edge software house specializing in advanced IT courses and digital services. They empower individuals and businesses with expertise in Generative AI, SEO, WordPress development, video editing, and more.At Tecrix, They blend technology with creativity to shape the future, offering innovative solutions and skill-building for tomorrow’s challenges.");
+}
+else if(message.includes("time")){
     let time = new Date().toLocaleString(undefined, {hour: 'numeric', minute: 'numeric', hour12: true});
     speak(`now the time is ${time}`);
     }
     else if(message.includes("date")){
         let date = new Date().toLocaleDateString(undefined, {weekday: 'long', year: 'numeric', month: 'short', day: 'numeric'});
         speak(`today's date is ${date}`);
+    }
+    else if (message.includes("hi") || message.includes("hello") || message.includes("hey") || message.includes("hola") || message.includes("namaste") || message.includes("hay")) {
+        speak("Hello Maanam sir, How i can Help you?");
     }
         else{
             let final_message = "this is what i found for you on the internet" + message.replace("search", "") || message.replace("find", "") || message.replace("hello techie", "") || message.replace("hey techie", "") || message.replace("hi techie", "") || message.replace("teki", "")
